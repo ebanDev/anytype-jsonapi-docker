@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  anytype-heart-jsonapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: anytype-heart-jsonapi
+    container_name: anytype-heart-jsonapi
+    ports:
+      - "31009:31009"
+    volumes:
+      - ./data:/data
+    env_file:
+      - .env
+    restart: unless-stopped
